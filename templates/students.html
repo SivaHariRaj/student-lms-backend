@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Students</title>
+<style>
+body { font-family: Arial; background:#f4f6f9; margin:0; }
+header { background:#1a202c; color:white; padding:16px; }
+.container { padding:25px; }
+input { padding:8px; width:250px; }
+table { width:100%; border-collapse:collapse; background:white; margin-top:20px; }
+th,td { padding:12px; border-bottom:1px solid #ccc; }
+th { background:#edf2f7; }
+</style>
+</head>
+
+<body>
+
+<header>SSN LMS – Student Management</header>
+
+<div class="container">
+
+<h1>Students</h1>
+<input id="search" placeholder="Search student">
+
+<table id="studentTable">
+<tr><th>ID</th><th>Name</th><th>Email</th><th>Program</th></tr>
+<tr><td>S101</td><td>Arun Kumar</td><td>arun@ssn.edu</td><td>CSE</td></tr>
+<tr><td>S102</td><td>Divya R</td><td>divya@ssn.edu</td><td>IT</td></tr>
+</table>
+
+</div>
+
+<script>
+document.getElementById("search").onkeyup = function() {
+  let filter = this.value.toLowerCase();
+  document.querySelectorAll("#studentTable tr").forEach((row,i)=>{
+    if(i===0) return;
+    row.style.display = row.innerText.toLowerCase().includes(filter) ? "" : "none";
+  });
+};
+</script>
+
+</body>
+</html>
